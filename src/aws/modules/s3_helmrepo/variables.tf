@@ -1,7 +1,7 @@
 ##################################################
 
 variable "enable_external_account_access" {
-  default = false
+  default     = false
   description = "Enable functionality to allow external AWS account access to this bucket."
   type        = bool
 }
