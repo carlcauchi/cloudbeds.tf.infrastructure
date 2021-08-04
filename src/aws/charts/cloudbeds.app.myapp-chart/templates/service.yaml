@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "cloudbeds.app.myapp-chart.fullname" . }}
+  labels:
+    {{- include "cloudbeds.app.myapp-chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "cloudbeds.app.myapp-chart.selectorLabels" . | nindent 4 }}
